@@ -1,0 +1,11 @@
+# backend
+/target
+*.log
+*.class
+
+# frontend
+node_modules
+build
+
+# common
+.env

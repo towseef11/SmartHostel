@@ -1,0 +1,13 @@
+.sidebar-btn {
+  background-color: #212529; /* same as bg-dark */
+  color: white;
+  border: 1px solid #6c757d; /* subtle border */
+  border-radius: 8px;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.sidebar-btn:hover {
+  background-color: white;
+  color: black;
+}
