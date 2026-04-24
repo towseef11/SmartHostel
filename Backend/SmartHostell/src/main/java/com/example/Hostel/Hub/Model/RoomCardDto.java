@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class RoomCardDto {
-     private int roomId;   // ✅ ADD THIS
+     private int roomId;  
      private String roomNumber;
      private int capacity;
      private int occupied;
