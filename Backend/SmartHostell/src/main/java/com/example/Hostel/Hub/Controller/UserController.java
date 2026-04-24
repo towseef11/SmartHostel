@@ -40,17 +40,17 @@ public class UserController {
 	public ResponseEntity<?> login(@RequestBody LoginRequest request) {
 
 	    try {
-	        // 🔐 Authenticate user via service
+	        
 	        User user = userService.login(request.getEmail(), request.getPassword());
 
-	        // 🔥 Generate JWT token
+	        
 	        String token = jwtutil.generateToken(
 	                user.getEmail(),
 	                user.getUserid(),
 	                user.getRole()
 	        );
 
-	        // 📦 Return response (DON'T expose password or full user object)
+	        
 	        LoginResponse response = new LoginResponse(
 	                token,
 	                user.getRole(),
