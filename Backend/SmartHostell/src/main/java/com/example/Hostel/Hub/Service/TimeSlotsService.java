@@ -37,28 +37,28 @@ public class TimeSlotsService {
 
         Long userId = getLoggedInUserId();
 
-        // ❌ Past date check
+        // Past date check
         if (date.isBefore(LocalDate.now())) {
             throw new RuntimeException("Cannot book past dates");
         }
 
-        // ❌ Slot time range check (7 AM - 7 PM)
+        //  Slot time range check (7 AM - 7 PM)
         if (time.isBefore(LocalTime.of(7, 0)) || time.isAfter(LocalTime.of(19, 0))) {
             throw new RuntimeException("Slot must be between 7 AM and 8 PM");
         }
 
-        // ❌ FIXED: past hour check (IMPORTANT)
+        //  FIXED: past hour check (IMPORTANT)
         if (date.equals(LocalDate.now()) &&
                 time.getHour() < LocalTime.now().getHour()) {
             throw new RuntimeException("Cannot book past time slots");
         }
 
-        // ❌ one slot per day per user
+        //  one slot per day per user
         if (repo.existsBySlotDateAndUserId(date, userId)) {
             throw new RuntimeException("Only one slot per day allowed");
         }
 
-        // ❌ slot already booked
+        //  slot already booked
         if (repo.existsBySlotDateAndSlotTime(date, time)) {
             throw new RuntimeException("Slot already booked");
         }
