@@ -51,7 +51,7 @@ public class RoomService {
 				card.setRoomNumber(room.getRoomNumber());
 				card.setCapacity(room.getCapacity());
 				card.setOccupied((int) occupied);
-				card.setRoomId(room.getId()); // ✅ ADD THIS
+				card.setRoomId(room.getId()); 
 				card.setVacancy(room.getCapacity() - (int) occupied);
 
 				roomCards.add(card);
